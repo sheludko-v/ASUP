@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>ASUP.My.MyApplication</StartupObject>
     <RootNamespace>ASUP</RootNamespace>
-    <AssemblyName>ASUP</AssemblyName>
+    <AssemblyName>АСУП РРЦ</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>ASUP.xml</DocumentationFile>
+    <DocumentationFile>АСУП РРЦ.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>ASUP.xml</DocumentationFile>
+    <DocumentationFile>АСУП РРЦ.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -48,6 +48,14 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\..\Libs\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\Libs\mysql-for-visualstudio-1.2.9-noinstall\14.0v46\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -73,11 +81,26 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="ADMIN.designer.vb">
+      <DependentUpon>ADMIN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="AdminPass.Designer.vb">
+      <DependentUpon>AdminPass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataGridViewPrinter.vb" />
+    <Compile Include="EnhancedPrintPreviewDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPass.designer.vb">
+      <DependentUpon>FormPass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPass.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -95,13 +118,86 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="MySQL_Connection.vb" />
+    <Compile Include="NH1.designer.vb">
+      <DependentUpon>NH1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NH1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NH2.designer.vb">
+      <DependentUpon>NH2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NH2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NO.designer.vb">
+      <DependentUpon>NO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ODA.designer.vb">
+      <DependentUpon>ODA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ODA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SP.designer.vb">
+      <DependentUpon>SP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STAT.designer.vb">
+      <DependentUpon>STAT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="STAT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZP.designer.vb">
+      <DependentUpon>ZP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ZP.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ADMIN.resx">
+      <DependentUpon>ADMIN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPass.resx">
+      <DependentUpon>AdminPass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPass.resx">
+      <DependentUpon>FormPass.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NH1.resx">
+      <DependentUpon>NH1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NH2.resx">
+      <DependentUpon>NH2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NO.resx">
+      <DependentUpon>NO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ODA.resx">
+      <DependentUpon>ODA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SP.resx">
+      <DependentUpon>SP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STAT.resx">
+      <DependentUpon>STAT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZP.resx">
+      <DependentUpon>ZP.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
