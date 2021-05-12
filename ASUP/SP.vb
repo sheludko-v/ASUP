@@ -16,10 +16,19 @@ Public Class SP
 
     Private Sub SP_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        LoadData()
-        ResetMe()
+
+        Dim file = My.Application.Info.DirectoryPath & ".\host.ini"
+        If IO.File.Exists(file) = True Then
+            LoadData()
+            ResetMe()
+        Else
+            ROOT.Show()
+            Close()
+        End If
 
         AcceptButton = SearchBtn
+        UNIT.DropDownStyle = ComboBoxStyle.DropDownList
+        VKK.DropDownStyle = ComboBoxStyle.DropDownList
 
         Today.Text = "Сегодня: " & Now.ToLongDateString
 
@@ -149,24 +158,33 @@ Public Class SP
     Private Sub AddBtn_Click(sender As Object, e As EventArgs) Handles AddBtn.Click
         If String.IsNullOrEmpty(FIO.Text.Trim()) Then
             MsgBox("Введите ФИО", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Добавить данные")
-            'ResetMe()
             Exit Sub
         End If
         If String.IsNullOrEmpty(ADRESS.Text.Trim()) Then
             MsgBox("Введите адрес", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Добавить данные")
-            'ResetMe()
             Exit Sub
         End If
         If String.IsNullOrEmpty(DIAG.Text.Trim()) Then
             MsgBox("Введите диагноз", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Добавить данные")
-            'ResetMe()
             Exit Sub
         End If
         If String.IsNullOrEmpty(WORK.Text.Trim()) Then
             MsgBox("Введите место работы", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Добавить данные")
-            'ResetMe()
             Exit Sub
         End If
+        If UNIT.SelectedIndex = 5 Then
+            MsgBox("Выберите отделение", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Добавить данные")
+            Exit Sub
+        End If
+        If VKK.SelectedIndex = 2 Then
+            MsgBox("Выберите наличие ВКК", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Добавить данные")
+            Exit Sub
+        End If
+        If DOB.Value.ToShortDateString.Trim() = Now.ToShortDateString Then
+            MsgBox("Выберите дату рождения", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Добавить данные")
+            Exit Sub
+        End If
+
 
 
         SQL = "INSERT INTO patients(full_name, dob, adress, diag, work, date_enter, unit, vkk) 
@@ -274,22 +292,30 @@ Public Class SP
 
         If String.IsNullOrEmpty(FIO.Text.Trim()) Then
             MsgBox("Введите ФИО", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Обновить данные")
-
             Exit Sub
         End If
         If String.IsNullOrEmpty(ADRESS.Text.Trim()) Then
             MsgBox("Введите адрес", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Обновить данные")
-
             Exit Sub
         End If
         If String.IsNullOrEmpty(DIAG.Text.Trim()) Then
             MsgBox("Введите диагноз", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Обновить данные")
-
             Exit Sub
         End If
         If String.IsNullOrEmpty(WORK.Text.Trim()) Then
             MsgBox("Введите место работы", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Обновить данные")
-
+            Exit Sub
+        End If
+        If UNIT.SelectedIndex = 5 Then
+            MsgBox("Выберите отделение", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Обновить данные")
+            Exit Sub
+        End If
+        If VKK.SelectedIndex = 2 Then
+            MsgBox("Выберите наличие ВКК", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Обновить данные")
+            Exit Sub
+        End If
+        If DOB.Value.ToShortDateString.Trim() = Now.ToShortDateString Then
+            MsgBox("Выберите дату рождения", MsgBoxStyle.OkOnly Or MsgBoxStyle.Exclamation, "Обновить данные")
             Exit Sub
         End If
 
@@ -414,5 +440,83 @@ Public Class SP
         StartPrint(SPData, False, True, header, company)
     End Sub
 
+    Private Sub ЭкспортВExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ЭкспортВExcelToolStripMenuItem.Click
 
+        Dim i As Integer
+        Dim j As Integer
+
+        xlApp = New Microsoft.Office.Interop.Excel.Application With {
+                .Visible = False
+            }
+
+        xlWorkBook = xlApp.Workbooks.Add(misValue)
+        xlWorkSheet = xlWorkBook.Sheets("Лист1")
+
+
+        For i = 0 To SPData.RowCount - 1
+            Progress.Visible = True
+            Export.Visible = True
+
+            Progress.Value = Int(i * (Progress.Maximum / SPData.RowCount))
+            My.Application.DoEvents()
+
+
+            Label4.Text = "Экспорт данных в Excel: "
+
+            For j = 0 To SPData.ColumnCount - 1
+
+                For k As Integer = 1 To SPData.Columns.Count
+
+                    xlWorkSheet.Cells(1, k) = SPData.Columns(k - 1).HeaderText
+
+                    xlWorkSheet.Cells(i + 2, j + 1) = SPData(j, i).Value
+                    xlWorkSheet.Columns.AutoFit()
+                Next
+            Next
+
+        Next
+
+        Progress.Visible = False
+        Export.Visible = False
+
+        xlWorkSheet.SaveAs(desktop + "\Выгрузка данных " & Now.ToShortDateString & ".xlsx")
+        xlWorkBook.Close()
+        xlApp.Quit()
+
+        ReleaseObject(xlApp)
+        ReleaseObject(xlWorkBook)
+        ReleaseObject(xlWorkSheet)
+
+        Label4.Text = "Количество записей в базе: " & SPData.Rows.Count - 1.ToString
+
+        MsgBox("Файл сохранен на Рабочий Стол под именем" & vbCrLf & vbCrLf & "                 Выгрузка данных " & Now.ToShortDateString)
+    End Sub
+
+    Private Sub ReleaseObject(ByVal obj As Object)
+        'процедура выгрузки объектов из памяти
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+            MessageBox.Show("Исключение при освобождении объекта " + ex.ToString())
+        Finally
+            GC.Collect()
+        End Try
+    End Sub
+
+    Private Sub ЗавершитьСеансToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ЗавершитьСеансToolStripMenuItem.Click
+        FormPass.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub ВыйтиToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ВыйтиToolStripMenuItem.Click
+        If MsgBox("Вы уверены, что хотите выйти?", MsgBoxStyle.YesNo Or MsgBoxStyle.DefaultButton1 Or MsgBoxStyle.Question) = MsgBoxResult.Yes Then
+            Me.Close()
+        End If
+    End Sub
+
+    Private Sub ОПрограммеToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ОПрограммеToolStripMenuItem.Click
+        ABOUT.Show()
+    End Sub
 End Class

@@ -8,14 +8,14 @@ Imports System.Runtime.InteropServices
 
 ' Проверьте значения атрибутов сборки
 
-<Assembly: AssemblyTitle("ASUP")>
+<Assembly: AssemblyTitle("АСУП РРЦ")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("ASUP")>
+<Assembly: AssemblyCompany("РРЦ МЗ ДНР")>
+<Assembly: AssemblyProduct("РРЦ МЗ ДНР")>
 <Assembly: AssemblyCopyright("Copyright ©  2021")>
 <Assembly: AssemblyTrademark("")>
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(True)>
 
 'Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
 <Assembly: Guid("72e4d66c-3fe1-49b0-a34c-85a1c909dfaf")>

@@ -6,7 +6,10 @@ Module MySQL_Connection
 
     Public Function GetConnectionString() As String
 
-        Dim host As String = "server=localhost;"
+        Dim file = My.Application.Info.DirectoryPath & ".\host.ini"
+        Dim ip = IO.File.ReadAllText(file, Text.Encoding.Default)
+
+        Dim host As String = "server=" & ip & ";"
         Dim port As String = "port=3306;"
         Dim db As String = "database=up;"
         Dim user As String = "user=rrc;"

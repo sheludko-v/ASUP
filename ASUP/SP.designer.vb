@@ -29,10 +29,8 @@ Partial Class SP
         Me.SPData = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ФайлToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ЭкспортВExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ПечатьToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ЗавершитьСеансToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ВыйтиToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.СправкаToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.Today = New System.Windows.Forms.ToolStripStatusLabel()
         Me.RecordsCount = New System.Windows.Forms.ToolStripStatusLabel()
@@ -69,6 +67,11 @@ Partial Class SP
         Me.Message = New System.Windows.Forms.Label()
         Me.SearchEnterDateBtn = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.ЭкспортВExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ПечатьToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ЗавершитьСеансToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ВыйтиToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ОПрограммеToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SPData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -79,7 +82,6 @@ Partial Class SP
         Me.SPData.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SPData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.SPData.BackgroundColor = System.Drawing.Color.GhostWhite
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -101,14 +103,13 @@ Partial Class SP
         Me.SPData.Location = New System.Drawing.Point(12, 27)
         Me.SPData.Name = "SPData"
         Me.SPData.ReadOnly = True
-        Me.SPData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.SPData.Size = New System.Drawing.Size(579, 749)
+        Me.SPData.Size = New System.Drawing.Size(582, 398)
         Me.SPData.TabIndex = 0
         '
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.Color.Transparent
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ФайлToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ФайлToolStripMenuItem, Me.ToolStripMenuItem1, Me.СправкаToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(987, 24)
@@ -122,35 +123,23 @@ Partial Class SP
         Me.ФайлToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
         Me.ФайлToolStripMenuItem.Text = "Файл"
         '
-        'ЭкспортВExcelToolStripMenuItem
+        'ToolStripMenuItem1
         '
-        Me.ЭкспортВExcelToolStripMenuItem.Name = "ЭкспортВExcelToolStripMenuItem"
-        Me.ЭкспортВExcelToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ЭкспортВExcelToolStripMenuItem.Text = "Экспорт в Excel"
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(12, 20)
         '
-        'ПечатьToolStripMenuItem
+        'СправкаToolStripMenuItem
         '
-        Me.ПечатьToolStripMenuItem.Name = "ПечатьToolStripMenuItem"
-        Me.ПечатьToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ПечатьToolStripMenuItem.Text = "Печать"
-        '
-        'ЗавершитьСеансToolStripMenuItem
-        '
-        Me.ЗавершитьСеансToolStripMenuItem.Name = "ЗавершитьСеансToolStripMenuItem"
-        Me.ЗавершитьСеансToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ЗавершитьСеансToolStripMenuItem.Text = "Завершить сеанс"
-        '
-        'ВыйтиToolStripMenuItem
-        '
-        Me.ВыйтиToolStripMenuItem.Name = "ВыйтиToolStripMenuItem"
-        Me.ВыйтиToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ВыйтиToolStripMenuItem.Text = "Выйти"
+        Me.СправкаToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ОПрограммеToolStripMenuItem})
+        Me.СправкаToolStripMenuItem.Name = "СправкаToolStripMenuItem"
+        Me.СправкаToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
+        Me.СправкаToolStripMenuItem.Text = "Справка"
         '
         'StatusStrip1
         '
         Me.StatusStrip1.BackColor = System.Drawing.Color.Transparent
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Today, Me.RecordsCount, Me.Export, Me.Progress})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 840)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 599)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(987, 22)
         Me.StatusStrip1.SizingGrip = False
@@ -229,11 +218,13 @@ Partial Class SP
         'UNIT
         '
         Me.UNIT.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.UNIT.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UNIT.FormattingEnabled = True
-        Me.UNIT.Items.AddRange(New Object() {"Нейрохирургия 1", "Нейрохирургия 2", "Неврология", "Травмотология ЗП", "Травмотология ОДА", "Нажмите для выбора..."})
-        Me.UNIT.Location = New System.Drawing.Point(638, 391)
+        Me.UNIT.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.UNIT.Items.AddRange(New Object() {"Нейрохирургия 1", "Нейрохирургия 2", "Неврология", "Травмотология ЗП", "Травмотология ОДА", "Нажмите для выбора"})
+        Me.UNIT.Location = New System.Drawing.Point(638, 398)
         Me.UNIT.Name = "UNIT"
-        Me.UNIT.Size = New System.Drawing.Size(296, 21)
+        Me.UNIT.Size = New System.Drawing.Size(137, 21)
         Me.UNIT.TabIndex = 31
         '
         'Label1
@@ -290,7 +281,7 @@ Partial Class SP
         '
         Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(635, 375)
+        Me.Label6.Location = New System.Drawing.Point(635, 382)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(62, 13)
         Me.Label6.TabIndex = 33
@@ -300,7 +291,7 @@ Partial Class SP
         '
         Me.Label7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(635, 426)
+        Me.Label7.Location = New System.Drawing.Point(793, 381)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(74, 13)
         Me.Label7.TabIndex = 33
@@ -326,9 +317,9 @@ Partial Class SP
         '
         'Label9
         '
-        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(808, 639)
+        Me.Label9.Location = New System.Drawing.Point(453, 437)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(80, 13)
         Me.Label9.TabIndex = 48
@@ -336,9 +327,9 @@ Partial Class SP
         '
         'Label10
         '
-        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(637, 639)
+        Me.Label10.Location = New System.Drawing.Point(327, 437)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(100, 13)
         Me.Label10.TabIndex = 47
@@ -346,13 +337,13 @@ Partial Class SP
         '
         'SearchExitDateBtn
         '
-        Me.SearchExitDateBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SearchExitDateBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.SearchExitDateBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.SearchExitDateBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite
         Me.SearchExitDateBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue
         Me.SearchExitDateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SearchExitDateBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.SearchExitDateBtn.Location = New System.Drawing.Point(811, 681)
+        Me.SearchExitDateBtn.Location = New System.Drawing.Point(456, 479)
         Me.SearchExitDateBtn.Name = "SearchExitDateBtn"
         Me.SearchExitDateBtn.Size = New System.Drawing.Size(122, 34)
         Me.SearchExitDateBtn.TabIndex = 46
@@ -361,23 +352,23 @@ Partial Class SP
         '
         'ExitDate
         '
-        Me.ExitDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ExitDate.Location = New System.Drawing.Point(811, 655)
+        Me.ExitDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.ExitDate.Location = New System.Drawing.Point(456, 453)
         Me.ExitDate.Name = "ExitDate"
         Me.ExitDate.Size = New System.Drawing.Size(122, 20)
         Me.ExitDate.TabIndex = 44
         '
         'EnterDate
         '
-        Me.EnterDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.EnterDate.Location = New System.Drawing.Point(638, 655)
+        Me.EnterDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.EnterDate.Location = New System.Drawing.Point(328, 453)
         Me.EnterDate.Name = "EnterDate"
         Me.EnterDate.Size = New System.Drawing.Size(122, 20)
         Me.EnterDate.TabIndex = 45
         '
         'SearchBtn
         '
-        Me.SearchBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SearchBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.SearchBtn.BackColor = System.Drawing.Color.Transparent
         Me.SearchBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.SearchBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite
@@ -385,7 +376,7 @@ Partial Class SP
         Me.SearchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SearchBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.SearchBtn.ForeColor = System.Drawing.Color.Black
-        Me.SearchBtn.Location = New System.Drawing.Point(882, 602)
+        Me.SearchBtn.Location = New System.Drawing.Point(256, 451)
         Me.SearchBtn.Name = "SearchBtn"
         Me.SearchBtn.Size = New System.Drawing.Size(51, 22)
         Me.SearchBtn.TabIndex = 39
@@ -394,7 +385,7 @@ Partial Class SP
         '
         'LoadBtn
         '
-        Me.LoadBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LoadBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.LoadBtn.BackColor = System.Drawing.Color.GhostWhite
         Me.LoadBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.LoadBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite
@@ -402,9 +393,9 @@ Partial Class SP
         Me.LoadBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.LoadBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.LoadBtn.ForeColor = System.Drawing.Color.Black
-        Me.LoadBtn.Location = New System.Drawing.Point(638, 726)
+        Me.LoadBtn.Location = New System.Drawing.Point(12, 480)
         Me.LoadBtn.Name = "LoadBtn"
-        Me.LoadBtn.Size = New System.Drawing.Size(295, 50)
+        Me.LoadBtn.Size = New System.Drawing.Size(295, 34)
         Me.LoadBtn.TabIndex = 40
         Me.LoadBtn.Text = "Загрузить базу"
         Me.LoadBtn.UseVisualStyleBackColor = False
@@ -419,7 +410,7 @@ Partial Class SP
         Me.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.DeleteBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.DeleteBtn.ForeColor = System.Drawing.Color.Black
-        Me.DeleteBtn.Location = New System.Drawing.Point(840, 477)
+        Me.DeleteBtn.Location = New System.Drawing.Point(840, 439)
         Me.DeleteBtn.Name = "DeleteBtn"
         Me.DeleteBtn.Size = New System.Drawing.Size(93, 32)
         Me.DeleteBtn.TabIndex = 43
@@ -428,9 +419,9 @@ Partial Class SP
         '
         'SearchText
         '
-        Me.SearchText.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SearchText.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.SearchText.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.SearchText.Location = New System.Drawing.Point(638, 602)
+        Me.SearchText.Location = New System.Drawing.Point(12, 451)
         Me.SearchText.Name = "SearchText"
         Me.SearchText.Size = New System.Drawing.Size(238, 22)
         Me.SearchText.TabIndex = 38
@@ -445,7 +436,7 @@ Partial Class SP
         Me.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SaveBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.SaveBtn.ForeColor = System.Drawing.Color.Black
-        Me.SaveBtn.Location = New System.Drawing.Point(739, 477)
+        Me.SaveBtn.Location = New System.Drawing.Point(739, 439)
         Me.SaveBtn.Name = "SaveBtn"
         Me.SaveBtn.Size = New System.Drawing.Size(95, 32)
         Me.SaveBtn.TabIndex = 42
@@ -462,7 +453,7 @@ Partial Class SP
         Me.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AddBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.AddBtn.ForeColor = System.Drawing.Color.Black
-        Me.AddBtn.Location = New System.Drawing.Point(638, 477)
+        Me.AddBtn.Location = New System.Drawing.Point(638, 439)
         Me.AddBtn.Name = "AddBtn"
         Me.AddBtn.Size = New System.Drawing.Size(95, 32)
         Me.AddBtn.TabIndex = 41
@@ -472,11 +463,12 @@ Partial Class SP
         'VKK
         '
         Me.VKK.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.VKK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.VKK.FormattingEnabled = True
-        Me.VKK.Items.AddRange(New Object() {"Есть", "Нет", "Нажмите для выбора..."})
-        Me.VKK.Location = New System.Drawing.Point(638, 443)
+        Me.VKK.Items.AddRange(New Object() {"Есть", "Нет", "Нажмите для выбора"})
+        Me.VKK.Location = New System.Drawing.Point(796, 398)
         Me.VKK.Name = "VKK"
-        Me.VKK.Size = New System.Drawing.Size(296, 21)
+        Me.VKK.Size = New System.Drawing.Size(137, 21)
         Me.VKK.TabIndex = 49
         '
         'Timer1
@@ -489,7 +481,7 @@ Partial Class SP
         Me.Message.AutoSize = True
         Me.Message.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.Message.ForeColor = System.Drawing.Color.Black
-        Me.Message.Location = New System.Drawing.Point(636, 537)
+        Me.Message.Location = New System.Drawing.Point(634, 494)
         Me.Message.Name = "Message"
         Me.Message.Size = New System.Drawing.Size(57, 20)
         Me.Message.TabIndex = 50
@@ -498,13 +490,13 @@ Partial Class SP
         '
         'SearchEnterDateBtn
         '
-        Me.SearchEnterDateBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SearchEnterDateBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.SearchEnterDateBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black
         Me.SearchEnterDateBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite
         Me.SearchEnterDateBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AliceBlue
         Me.SearchEnterDateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SearchEnterDateBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.SearchEnterDateBtn.Location = New System.Drawing.Point(638, 681)
+        Me.SearchEnterDateBtn.Location = New System.Drawing.Point(328, 479)
         Me.SearchEnterDateBtn.Name = "SearchEnterDateBtn"
         Me.SearchEnterDateBtn.Size = New System.Drawing.Size(122, 34)
         Me.SearchEnterDateBtn.TabIndex = 46
@@ -513,20 +505,56 @@ Partial Class SP
         '
         'Label11
         '
-        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(637, 586)
+        Me.Label11.Location = New System.Drawing.Point(11, 435)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(81, 13)
         Me.Label11.TabIndex = 48
         Me.Label11.Text = "Поиск по базе"
+        '
+        'ЭкспортВExcelToolStripMenuItem
+        '
+        Me.ЭкспортВExcelToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control
+        Me.ЭкспортВExcelToolStripMenuItem.Image = Global.ASUP.My.Resources.Resources.excel_theapplication_3130
+        Me.ЭкспортВExcelToolStripMenuItem.Name = "ЭкспортВExcelToolStripMenuItem"
+        Me.ЭкспортВExcelToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.ЭкспортВExcelToolStripMenuItem.Text = "Экспорт в Excel"
+        '
+        'ПечатьToolStripMenuItem
+        '
+        Me.ПечатьToolStripMenuItem.Image = Global.ASUP.My.Resources.Resources.print_118761
+        Me.ПечатьToolStripMenuItem.Name = "ПечатьToolStripMenuItem"
+        Me.ПечатьToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.ПечатьToolStripMenuItem.Text = "Печать"
+        '
+        'ЗавершитьСеансToolStripMenuItem
+        '
+        Me.ЗавершитьСеансToolStripMenuItem.Image = Global.ASUP.My.Resources.Resources.logout_icon_138409
+        Me.ЗавершитьСеансToolStripMenuItem.Name = "ЗавершитьСеансToolStripMenuItem"
+        Me.ЗавершитьСеансToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.ЗавершитьСеансToolStripMenuItem.Text = "Завершить сеанс"
+        '
+        'ВыйтиToolStripMenuItem
+        '
+        Me.ВыйтиToolStripMenuItem.Image = Global.ASUP.My.Resources.Resources._exit
+        Me.ВыйтиToolStripMenuItem.Name = "ВыйтиToolStripMenuItem"
+        Me.ВыйтиToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.ВыйтиToolStripMenuItem.Text = "Выйти"
+        '
+        'ОПрограммеToolStripMenuItem
+        '
+        Me.ОПрограммеToolStripMenuItem.Image = Global.ASUP.My.Resources.Resources.info_3525
+        Me.ОПрограммеToolStripMenuItem.Name = "ОПрограммеToolStripMenuItem"
+        Me.ОПрограммеToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
+        Me.ОПрограммеToolStripMenuItem.Text = "О программе"
         '
         'SP
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(214, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(233, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(987, 862)
+        Me.ClientSize = New System.Drawing.Size(987, 621)
         Me.Controls.Add(Me.Message)
         Me.Controls.Add(Me.VKK)
         Me.Controls.Add(Me.Label11)
@@ -619,4 +647,7 @@ Partial Class SP
     Friend WithEvents Message As Label
     Friend WithEvents SearchEnterDateBtn As Button
     Friend WithEvents Label11 As Label
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents СправкаToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ОПрограммеToolStripMenuItem As ToolStripMenuItem
 End Class

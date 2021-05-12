@@ -14,6 +14,24 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Стигмат\Desktop\АСУП РРЦ\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,6 +64,24 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>0B857AF68653378682A52AECF2DA72F590E64625</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ASUP_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>male-user-add_25347.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
@@ -93,8 +129,21 @@
     <Compile Include="AdminPass.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="DataGridViewPrinter.vb" />
     <Compile Include="EnhancedPrintPreviewDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABOUT.designer.vb">
+      <DependentUpon>ABOUT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ABOUT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ROOT.designer.vb">
+      <DependentUpon>ROOT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ROOT.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPass.designer.vb">
@@ -149,6 +198,12 @@
     <Compile Include="SP.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SPLASH.Designer.vb">
+      <DependentUpon>SPLASH.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SPLASH.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="STAT.designer.vb">
       <DependentUpon>STAT.vb</DependentUpon>
     </Compile>
@@ -168,6 +223,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPass.resx">
       <DependentUpon>AdminPass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABOUT.resx">
+      <DependentUpon>ABOUT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ROOT.resx">
+      <DependentUpon>ROOT.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPass.resx">
       <DependentUpon>FormPass.vb</DependentUpon>
@@ -193,6 +254,9 @@
     <EmbeddedResource Include="SP.resx">
       <DependentUpon>SP.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SPLASH.resx">
+      <DependentUpon>SPLASH.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="STAT.resx">
       <DependentUpon>STAT.vb</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +265,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="ASUP_TemporaryKey.pfx" />
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -211,6 +277,59 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel_theapplication_3130.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print_118761.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\REFRESH_26888.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout_icon_138409.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout_icon_1384091.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\male-user-add_25347.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_3525.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infobutton_87516.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\seo-social-web-network-internet_186_icon-icons.com_61527.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="male-user-add_25347.ico" />
+    <None Include="Resources\заставка1.jpg" />
+    <None Include="Resources\заставка.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

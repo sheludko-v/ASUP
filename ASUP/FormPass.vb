@@ -28,6 +28,9 @@
         ElseIf login.Text = "oda" And password.Text = "111" Then
             ODA.Show()
             Me.Close()
+        ElseIf login.Text = "root" And password.Text = "root" Then
+            ROOT.Show()
+            Me.Close()
         Else
             MessageBox.Show("Неверный логин или пароль!!!")
         End If
